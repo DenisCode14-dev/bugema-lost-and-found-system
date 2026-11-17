@@ -1,6 +1,8 @@
 require("dotenv").config();
 const express = require("express"), mongoose = require("mongoose"), cors = require("cors"), path = require("path");
-for (const k of ["MONGODB_URI", "JWT_SECRET"]) if (!process.env[k]) { console.error(`Missing ${k} in .env`); process.exit(1); }
+
+console.log("MONGODB_URI exists:", !!process.env.MONGODB_URI);
+console.log("JWT_SECRET exists:", !!process.env.JWT_SECRET);
 
 const app = express();
 app.use(cors(), express.json({ limit: "1mb" }));
